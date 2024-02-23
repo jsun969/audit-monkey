@@ -1,5 +1,5 @@
-// @ts-ignore isolatedModules
 import { GM_addElement } from '$';
+
 import { download } from './logic/download';
 
 const downloadButtonStyle = `
@@ -14,14 +14,14 @@ cursor: pointer;
 `;
 
 const downloadButton = GM_addElement(
-  document.getElementsByTagName('body')[0],
-  'button',
-  {
-    id: 'audit-monkey',
-    textContent: 'Download iCal',
-    style: downloadButtonStyle
-      .replace(/\n/g, ' ')
-      .slice(1, -1) as unknown as CSSStyleDeclaration,
-  }
+	document.getElementsByTagName('body')[0],
+	'button',
+	{
+		id: 'audit-monkey',
+		textContent: 'Download iCal',
+		style: downloadButtonStyle
+			.replace(/\n/g, ' ')
+			.slice(1, -1) as unknown as CSSStyleDeclaration,
+	},
 );
 downloadButton.addEventListener('click', download);
