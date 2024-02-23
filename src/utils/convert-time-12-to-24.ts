@@ -4,20 +4,16 @@
  * @returns Time as a string in 24-hour format: `hh:mm:00`
  */
 export function convertTime12to24(time12h: string) {
-	const [time, modifierWithDot] = time12h.split(' ');
-	const [hours, mins] = time.split(':');
+	const [time, modifier] = time12h.split(' ');
+	const [hoursStr, minutes] = time.split(':');
 
-	// Normalize strings like "A.M." or "P.M." to "AM" and "PM"
-	const modifier = modifierWithDot.replace('.', '');
+	let hours = parseInt(hoursStr, 10);
 
-	if (hours === '12') {
-		return `00:${mins}:00`;
+	if (modifier === 'PM' && hours < 12) {
+		hours += 12;
+	} else if (modifier === 'AM' && hours === 12) {
+		hours = 0;
 	}
-	if (modifier === 'PM') {
-		return `${Number(hours) + 12}:${mins}:00`;
-	}
-	if (Number(hours) < 10) {
-		return `0${hours}:${mins}:00`;
-	}
-	return `${hours}:${mins}:00`;
+
+	return `${hours.toString().padStart(2, '0')}:${minutes}:${'00'}`;
 }
