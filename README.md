@@ -11,8 +11,12 @@
 ### 💾 Download iCal
 
 1. Install [Tampermonkey](https://www.tampermonkey.net/) for your browser.
-2. Download the latest release of the script in [Release](https://github.com/jsun969/audit-monkey/releases).
-3. Drag and drop the downloaded file into your browser to install the script.
+2. Click the latest release `audit-monkey.user.js` in [Release](https://github.com/jsun969/audit-monkey/releases).
+3. The Tampermonkey installation interface will popup when you click on the script file. Install it.
+
+> [!NOTE]  
+> If not, download the script then drag & drop it into the Tampermonkey dashboard.
+
 4. Go to your [MyAdelaide](https://myadelaide.uni.adelaide.edu.au/) and login.
 5. Click the `Download iCal` button at the bottom left.
 
