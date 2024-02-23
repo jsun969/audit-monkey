@@ -1,7 +1,7 @@
 {
   "name": "audit-monkey",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -12,5 +12,8 @@
     "typescript": "^5.3.3",
     "vite": "^5.0.11",
     "vite-plugin-monkey": "^3.5.1"
+  },
+  "dependencies": {
+    "ical-generator": "^6.0.1"
   }
 }

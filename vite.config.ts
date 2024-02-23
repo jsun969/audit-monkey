@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 import monkey from 'vite-plugin-monkey';
+import { icon } from './icon';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -7,10 +8,13 @@ export default defineConfig({
     monkey({
       entry: 'src/main.ts',
       userscript: {
-        icon: 'https://vitejs.dev/logo.svg',
-        namespace: 'npm/vite-plugin-monkey',
-        match: ['https://www.google.com/'],
+        icon64: icon,
+        namespace: 'github/audit-monkey',
+        match: ['https://myadelaide.uni.adelaide.edu.au/*'],
+        grant: ['GM.addElement', 'unsafeWindow'],
+        source: 'https://github.com/jsun969/audit-monkey',
       },
     }),
   ],
+  build: { minify: true },
 });
