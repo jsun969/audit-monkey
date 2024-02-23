@@ -25,6 +25,6 @@ jobs:
         run: pnpm i && pnpm build
 
       - name: Release
-        uses: ncipollo/release-action@v1
+        uses: softprops/action-gh-release@v1
         with:
-          artifacts: dist/*
+          files: dist/*
