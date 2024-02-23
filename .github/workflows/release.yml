@@ -1,0 +1,30 @@
+name: 'release'
+on:
+  push:
+    branches:
+      - release
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - uses: pnpm/action-setup@v3
+        with:
+          version: 8
+
+      - name: Install dependencies and build
+        run: pnpm i && pnpm build
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: dist/*
+          token: ${{ secrets.GITHUB_TOKEN }}
+          name: Release ${{ github.ref }}
