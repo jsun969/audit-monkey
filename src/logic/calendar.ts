@@ -1,6 +1,3 @@
-/**
- * Parse JSON data and convert it to .ics format
- */
 import type { ICalCalendar, ICalRepeatingOptions } from 'ical-generator';
 import ical, { ICalEventRepeatingFreq } from 'ical-generator';
 
