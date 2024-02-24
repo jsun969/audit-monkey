@@ -7,15 +7,15 @@ import ical, { ICalEventRepeatingFreq } from 'ical-generator';
 import type { TimeTableAPIRow } from '../types';
 import { convertTime12to24 } from '../utils/convert-time-12-to-24';
 
-function createCalEvent(calendar: ICalCalendar, data: TimeTableAPIRow) {
-	const summary = `[${data['D.XLATSHORTNAME']}] ${data['B.SUBJECT']} ${data['B.CATALOG_NBR']} - ${data['B.DESCR']}`;
+function createCalEvent(calendar: ICalCalendar, row: TimeTableAPIRow) {
+	const summary = `[${row['D.XLATSHORTNAME']}] ${row['B.SUBJECT']} ${row['B.CATALOG_NBR']} - ${row['B.DESCR']}`;
 
-	const location = `${data['G.DESCR']} / ${data['F.ROOM']} / ${data['F.DESCR']}`;
+	const location = `${row['G.DESCR']} / ${row['F.ROOM']} / ${row['F.DESCR']}`;
 
-	const startDateData = data['E.START_DT'];
-	const endDateData = data['E.END_DT'];
-	const startTimeData = data['START_TIME'];
-	const endTimeData = data['END_TIME'];
+	const startDateData = row['E.START_DT'];
+	const endDateData = row['E.END_DT'];
+	const startTimeData = row['START_TIME'];
+	const endTimeData = row['END_TIME'];
 
 	const startTime = convertTime12to24(startTimeData);
 	const endTime = convertTime12to24(endTimeData);
@@ -36,19 +36,20 @@ function createCalEvent(calendar: ICalCalendar, data: TimeTableAPIRow) {
 		start: eventStart,
 		end: eventEnd,
 		repeating: repeatOptions,
+		description: row['C.DESCR'],
 	});
 }
 
 export function createCalendar(
 	name: string,
-	rows: Array<TimeTableAPIRow>,
+	timeTableRows: Array<TimeTableAPIRow>,
 ): ICalCalendar {
 	const calendar = ical({ name });
 	const tz = 'Australia/Adelaide';
 	calendar.timezone(tz);
 	calendar.x([{ key: 'X-LIC-LOCATION', value: tz }]);
 
-	rows.forEach((row) => {
+	timeTableRows.forEach((row) => {
 		if (row['START_TIME'] === '') {
 			console.warn(
 				`Skipping event with no start time: ${row['B.SUBJECT']} ${row['B.CATALOG_NBR']} - ${row['B.DESCR']}`,

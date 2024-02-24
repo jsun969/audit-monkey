@@ -21,20 +21,25 @@ export const download = async () => {
 	const auth = getAuth();
 	const headers = { Authorization: `Bearer ${auth.token}` };
 
-	const semCodeRes = await get<APIRes<{ 'A.STRM': string }>>(
-		`https://api.adelaide.edu.au/api/generic-query-structured/v1/?target=/system/TIMETABLE_WIDGET/queryx/${auth.id}&MaxRows=5`,
-		{ headers },
-	);
-	const semCode = semCodeRes.data.query.rows[0]['A.STRM'];
-	const timetableRaw = await get<APIRes<TimeTableAPIRow>>(
-		`https://api.adelaide.edu.au/api/generic-query-structured/v1/?target=/system/TIMETABLE_LIST/queryx/${auth.id},${semCode}&MaxRows=9999`,
+	const semCodesRes = await get<{
+		TERMS: Array<{ DECSR: string; TERM: string }>;
+	}>(
+		`https://api.adelaide.edu.au/api/program-info/v1/students/${auth.id}/enrolmentLetterEligibility`,
 		{ headers },
 	);
 
-	const calendar = createCalendar(
-		'uofa-timetable',
-		timetableRaw.data.query.rows,
-	);
+	const timeTableRows = (
+		await Promise.all(
+			semCodesRes.TERMS.map(async (semCode) => {
+				const timetableRaw = await get<APIRes<TimeTableAPIRow>>(
+					`https://api.adelaide.edu.au/api/generic-query-structured/v1/?target=/system/TIMETABLE_LIST/queryx/${auth.id},${semCode.TERM}&MaxRows=9999`,
+					{ headers },
+				);
+				return timetableRaw.data.query.rows;
+			}),
+		)
+	).flat();
+	const calendar = createCalendar('uofa-timetable', timeTableRows);
 	const iCal = generateICal(calendar);
 
 	const downloadLink = document.createElement('a');
