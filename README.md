@@ -26,9 +26,9 @@
 
 #### Google Calendar
 
-1. Click the `Settings` gear icon in the top right corner.
-2. Select `Settings` from the dropdown menu.
-3. Click on the `Import & Export` tab on the left-hand side of the screen.
+1. Click the `Add other calendars` dropdown menu (plus icon) on the left-hand side of the screen.
+2. Click `Create new calendar` and give it a name.
+3. Back to the `Add other calendars` dropdown menu, click `Import`.
 4. Click on the `Select file from your computer` button and choose the downloaded iCal file.
 5. Choose the calendar where you want to add the imported events.
 6. Click `Import` and wait for the calendar to import the events from the iCal file.
