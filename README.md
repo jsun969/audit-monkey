@@ -20,6 +20,8 @@
 4. Go to your [MyAdelaide](https://myadelaide.uni.adelaide.edu.au/) and login.
 5. Click the `Download iCal` button at the bottom left.
 
+![Download iCal Button](images/download-ical-button.png)
+
 ### 📌 Import iCal
 
 #### Google Calendar
