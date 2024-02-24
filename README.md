@@ -35,6 +35,9 @@
 
 #### Apple Calendar
 
+> [!CAUTION]  
+> **NOT RECOMMENDED** Apple Calendar may miss some events. Use other calendar then sync it to Apple Calendar.
+
 > [!TIP]  
 > You can just simply click on the calendar file and it will be imported to your Apple Calendar.
 
