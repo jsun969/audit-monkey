@@ -49,4 +49,4 @@
 
 ## 🙏 Thanks
 
-Inspired by [AUDIT](https://github.com/rayokamoto/AUDIT) ~~and also stole a lot of code from it~~
+Inspired by [AUDIT](https://github.com/rayokamoto/AUDIT) ~~and also stole a lot of code <sub>even icon</sub> from it~~
