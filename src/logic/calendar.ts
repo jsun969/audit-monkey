@@ -22,7 +22,7 @@ function createCalEvent(calendar: ICalCalendar, row: TimeTableAPIRow) {
 
 	// Use this to calculate repeating times
 	// The UNTIL parameter is non-inclusive, so set untilTime to midnight after the endDate to include the last event occurrence
-	let utilTime = new Date(new Date(endDateData).setHours(24, 0, 0, 0));
+	const endDate = new Date(new Date(endDateData).setHours(24, 0, 0, 0));
 	const repeatOptions: ICalRepeatingOptions = {
 		freq: ICalEventRepeatingFreq.WEEKLY,
 		until: utilTime,
