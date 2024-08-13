@@ -44,7 +44,7 @@
 4. Choose the calendar where you want to add the imported events.
 5. Click `Import` and wait for the calendar to import the events from the iCal file.
 
-### Outlook Calendar
+#### Outlook Calendar
 
 1. Click `Add calendar`
 2. Go to `Create blank calendar` tab and create a new calendar.
