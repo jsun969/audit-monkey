@@ -35,9 +35,6 @@
 
 #### Apple Calendar
 
-> [!CAUTION]  
-> **NOT RECOMMENDED** Apple Calendar may miss some events. Use other calendar then sync it to Apple Calendar.
-
 > [!TIP]  
 > You can just simply click on the calendar file and it will be imported to your Apple Calendar.
 
@@ -45,6 +42,14 @@
 2. Select `Import...` from the dropdown menu.
 3. Choose the downloaded iCal file from your computer.
 4. Choose the calendar where you want to add the imported events.
+5. Click `Import` and wait for the calendar to import the events from the iCal file.
+
+### Outlook Calendar
+
+1. Click `Add calendar`
+2. Go to `Create blank calendar` tab and create a new calendar.
+3. Go to `Upload from file` tab and upload the downloaded iCal file.
+4. Select the calendar you created in step 2.
 5. Click `Import` and wait for the calendar to import the events from the iCal file.
 
 ## 🙏 Thanks
