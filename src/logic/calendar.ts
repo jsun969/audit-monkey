@@ -25,7 +25,7 @@ function createCalEvent(calendar: ICalCalendar, row: TimeTableAPIRow) {
 	const endDate = new Date(new Date(endDateData).setHours(24, 0, 0, 0));
 	const repeatOptions: ICalRepeatingOptions = {
 		freq: ICalEventRepeatingFreq.WEEKLY,
-		until: utilTime,
+		until: endDate,
 	};
 
 	calendar.createEvent({
