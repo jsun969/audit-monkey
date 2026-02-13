@@ -1,3 +1,6 @@
+# !!! No longer maintained !!!
+## Use <https://apps.adelaide.edu.au/student/calendar/> instead from the new Adelaide University
+
 <div align="center">
 
 # 🗓️ AUDIT MONKEY 🙉
